@@ -32,29 +32,6 @@ Array.from(numbers).map(number => {
         }
     });
 });
-
-// adding click handlers to the calculation buttons
-Array.from(operators).map(operator => {
-    operator.addEventListener("click", function() {
-        // storing current input string and its last character in variables - used later
-        let currentString = input.innerHTML;
-        let lastChar = currentString[currentString.length - 1];
-    
-        // if last character entered is an operator, replace it with the currently pressed one
-        if (lastChar === "+" || lastChar === "-" || lastChar === "*" || lastChar === "/") {
-            // We need to create a new string, and just replace the last character.  
-            const newString = currentString.substring(0, currentString.length - 1) + this.innerHTML;
-            input.innerHTML = newString;
-        } else if (currentString.length == 0) {
-            // if first key pressed is an opearator, don't do anything
-            console.log("enter a number first");
-        } else {
-            // else just add the operator pressed to the input
-            input.innerHTML += this.innerHTML;
-        }
-    });
-})
-
 // on click of 'equal' button
 result.addEventListener("click", function() {
     const currentString = input.innerHTML;
